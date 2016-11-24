@@ -12,5 +12,13 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require react
+//= require react_ujs
+//= require components
 //= require turbolinks
 //= require_tree .
+
+var React = require('react');
+var ReactDOM = require('react-dom');
+
+ReactDOM.render(<h1>Render me!</h1>, document.getElementById('container'));
