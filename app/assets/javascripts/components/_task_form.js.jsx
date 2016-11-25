@@ -21,7 +21,7 @@ var TaskForm = React.createClass({
       <form ref="form" className="task-form" action={ this.props.form.action } acceptCharset="UTF-8" method="post" onSubmit={ this.handleSubmit }>
         <p><input type="hidden" name={ this.props.form.csrf_param } value={ this.props.form.csrf_token } /></p>
         <p><textarea ref="title" name="task[title]" placeholder="Say something..." /></p>
-        <p><button type="submit">Post</button></p>
+        <p><button type="submit">Post task</button></p>
       </form>
     )
   }
