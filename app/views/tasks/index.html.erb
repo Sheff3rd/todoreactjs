@@ -1,16 +1,4 @@
 <%= react_component('heyo') %>
 
-
-<!--
-<%= javascript_tag do %>
-  window.tasksURL = "<%=j tasks_url %>";
-<% end %>
--->
-
 <%= react_component('TaskBox',
-                    {:presenter => @presenter.to_json}) %>
-<hr />
-
-
-
-<%= link_to 'Create new task', new_task_path %>
+                    {presenter: @presenter.to_json}, {prerender: true}) %>
