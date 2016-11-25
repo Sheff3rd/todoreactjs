@@ -1,3 +1,15 @@
-<%= react_component('Hello') %>
+<%= react_component('heyo') %>
+<%= render 'form' %>
+
+<%= javascript_tag do %>
+  window.tasksURL = "<%=j tasks_url %>";
+<% end %>
+
+<ol>
+  <% @tasks.each do |task| %>
+    <li> <%= task.title %> </li>
+    <br />
+  <% end %>
+</ol>
 
 <%= link_to 'Create new task', new_task_path %>
