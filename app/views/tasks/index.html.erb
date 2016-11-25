@@ -1,15 +1,16 @@
 <%= react_component('heyo') %>
 <%= render 'form' %>
 
+<!--
 <%= javascript_tag do %>
   window.tasksURL = "<%=j tasks_url %>";
 <% end %>
+-->
 
-<ol>
-  <% @tasks.each do |task| %>
-    <li> <%= task.title %> </li>
-    <br />
-  <% end %>
-</ol>
+<%= react_component('TaskBox',
+                    {:presenter => @presenter.to_json}) %>
+<hr />
+
+
 
 <%= link_to 'Create new task', new_task_path %>

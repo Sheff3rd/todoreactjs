@@ -1,6 +1,0 @@
-<%= form_for @task, method: :post, url: tasks_path, remote: true do |f| %>
-    <%= f.text_field :title, autofocus: true, value: nil, autocomplete: false %>
-    <%= f.submit %>
-  <%= @task.errors[:title].first %>
-  <hr>
-<% end %>
