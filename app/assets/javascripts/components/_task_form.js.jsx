@@ -2,19 +2,20 @@ var TaskForm = React.createClass({
   handleSubmit: function ( event ) {
     event.preventDefault();
 
-    var title = this.refs.title.getDOMNode().value.trim();
+    var title = ReactDOM.findDOMNode(this.refs.title).value.trim();
 
-    // validate
-    // if (!text || !author) {
-    //   return false;
-    // }
+    //validate
+    if (!title) {
+      return false;
+    }
 
     // submit
-    var formData = $( this.refs.form.getDOMNode() ).serialize();
+    var formData = $( ReactDOM.findDOMNode(this.refs.title) ).serialize();
     this.props.onTaskSubmit( formData, this.props.form.action );
 
     // reset form
-    this.refs.title.getDOMNode().value = "";
+    ReactDOM.findDOMNode(this.refs.title).value = "";
+
   },
   render: function () {
     return (

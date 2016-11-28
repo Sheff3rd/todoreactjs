@@ -9,11 +9,6 @@ class TasksController < ApplicationController
         :csrf_token => form_authenticity_token
       }
     }
-
-    #old stuff
-    # @tasks = Task.all
-    # gon.tasks = Task.last
-    new
   end
 
   def new
@@ -25,20 +20,10 @@ class TasksController < ApplicationController
     @task.save
 
     if request.xhr?
-      render :json => Task.last(5)
+      render :json => Task.all
     else
       redirect_to tasks_path
     end
-
-
-    # @rails_task_json = @task.to_json
-    # respond_to do |format|
-    #   if @task.save
-    #     format.json { render json: @task }
-    #     format.js
-    #   else
-    #   end
-    # end
   end
 
   private
@@ -46,6 +31,4 @@ class TasksController < ApplicationController
     def task_params
       params.require(:task).permit(:title)
     end
-
-
 end
