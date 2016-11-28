@@ -18,10 +18,11 @@ var TaskBox = React.createClass({
   render: function () {
     return (
       <div className="task-box">
-        <TaskList tasks={ this.state.tasks } />
-        <hr />
         <h2>Add task:</h2>
         <TaskForm form={ this.state.form } onTaskSubmit={ this.handleTaskSubmit } />
+        <hr />
+        <TitleTask />
+        <TaskList tasks={ this.state.tasks } />
       </div>
     );
   }

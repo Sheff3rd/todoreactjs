@@ -4,7 +4,7 @@ var h3 = React.createElement(
   "Create new task: "
 );
 
-var heyo = React.createClass({
+var TitleTask = React.createClass({
   render: function () {
     return h3;
   }
