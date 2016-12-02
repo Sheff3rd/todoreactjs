@@ -1,12 +1,11 @@
 class TasksController < ApplicationController
-
   def index
     @presenter = {
-      :tasks => Task.last(5),
-      :form => {
-        :action => tasks_path,
-        :csrf_param => request_forgery_protection_token,
-        :csrf_token => form_authenticity_token
+      tasks: Task.last(5),
+      form: {
+        action: tasks_path,
+        csrf_param: request_forgery_protection_token,
+        csrf_token: form_authenticity_token
       }
     }
   end
@@ -20,7 +19,7 @@ class TasksController < ApplicationController
     @task.save
 
     if request.xhr?
-      render :json => Task.all
+      render json: Task.all
     else
       redirect_to tasks_path
     end
@@ -28,7 +27,7 @@ class TasksController < ApplicationController
 
   private
 
-    def task_params
-      params.require(:task).permit(:title)
-    end
+  def task_params
+    params.require(:task).permit(:title)
+  end
 end
